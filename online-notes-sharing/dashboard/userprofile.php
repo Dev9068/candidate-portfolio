@@ -7,14 +7,14 @@ include ('includes/adminheader.php');
 <?php
 if (isset($_SESSION['username'])) {
 	$username = $_SESSION['username'];
-	$query = "SELECT * FROM users WHERE username = '$username'" ; 
+	$query = "SELECT * FROM user WHERE uname = '$username'" ; 
 	$result= mysqli_query($conn , $query) or die (mysqli_error($conn));
 	if (mysqli_num_rows($result) > 0 ) {
 		$row = mysqli_fetch_array($result);
-		$userid = $row['id'];
-		$usernm = $row['username'];
-		$userpassword = $row['password'];
-		$useremail = $row['email'];
+		$userid = $row['uid'];
+		$usernm = $row['name'];
+		$userpassword = $row['upass'];
+		$useremail = $row['uname'];
 		$name = $row['name'];
 		$profilepic = $row['image'];
 		$bio = $row['about'];
@@ -42,7 +42,7 @@ echo "<script>alert('Image size is not proper');
         $imgext = strtolower(pathinfo($image, PATHINFO_EXTENSION) );
         $picture = rand(1000 , 1000000) .'.'.$imgext;
         if (move_uploaded_file($_FILES['image']['tmp_name'], $folder.$picture)) {
-        $queryupdate = "UPDATE users SET image = '$picture' WHERE id= '$userid' " ;
+        $queryupdate = "UPDATE user SET image = '$picture' WHERE uid= '$userid' " ;
         $result = mysqli_query($conn , $queryupdate) or die(mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
         	echo "<script>alert('Profile Photo uploaded successfully');

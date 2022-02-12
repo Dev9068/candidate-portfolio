@@ -21,13 +21,13 @@
 					<?php
 					$i = 1;
 					$type = array('',"Admin","Project Manager","Employee");
-					$qry = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users order by concat(firstname,' ',lastname) asc");
+					$qry = $conn->query("SELECT *,concat(name) as name FROM user order by concat(name) asc");
 					while($row= $qry->fetch_assoc()):
 					?>
 					<tr>
 						<th class="text-center"><?php echo $i++ ?></th>
 						<td><b><?php echo ucwords($row['name']) ?></b></td>
-						<td><b><?php echo $row['email'] ?></b></td>
+						<td><b><?php echo $row['uname'] ?></b></td>
 						<td><b><?php echo $type[$row['type']] ?></b></td>
 						<td class="text-center">
 							<button type="button" class="btn btn-default btn-sm btn-flat border-info wave-effect text-info dropdown-toggle" data-toggle="dropdown" aria-expanded="true">

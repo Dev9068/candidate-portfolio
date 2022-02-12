@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'candidate_portal');
+$conn = new mysqli('localhost', 'root', '', 'candidate_portal');
 
 // Check connection
 if ($conn->connect_errno) {
