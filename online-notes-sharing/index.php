@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['login_id']))
 header('location:../user/login.php');
-include 'db_connect.php';
+exit();
 ?>
 <?php include 'includes/connection.php';?>
 <?php include 'includes/header.php';?>
@@ -73,46 +73,6 @@ include 'db_connect.php';
 </body>
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php include 'includes/footer.php';?>
+<?php // include 'includes/footer.php';?>
 
         
